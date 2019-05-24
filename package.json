@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-fileupload": "^1.1.4",
+    "fast-xml-parser": "^3.12.16",
+    "pretty": "^2.0.0"
+  }
+}

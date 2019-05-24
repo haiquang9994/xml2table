@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XML to HTML</title>
+    <style>
+        table {
+            border: 1px solid;
+            width: 100%;
+            border-spacing: 0;
+            margin: 20px 0 0;
+        }
+        td, th {
+            text-align: left;
+            padding: 5px;
+            border: 1px solid;
+        }
+        textarea {
+            width: 100%;
+            resize: none;
+            height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="file">
+    <button type="button" id="run">Run</button>
+    <div id="output"></div>
+    <textarea id="output2" rows="10"></textarea>
+
+    <script>
+        document.getElementById('run').addEventListener('click', function () {
+            var file = document.getElementById('file').files[0]
+            if (file) {
+                var formData = new FormData()
+                formData.append('file', file, file.name)
+                var xhr = new XMLHttpRequest()
+                xhr.open('POST', 'run', true)
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        document.getElementById('output').innerHTML = xhr.responseText
+                        document.getElementById('output2').innerHTML = xhr.responseText
+                    }
+                }
+                xhr.send(formData)
+            }
+        })
+    </script>
+</body>
+</html>
