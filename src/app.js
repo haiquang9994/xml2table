@@ -1,7 +1,7 @@
 const express = require('express'),
   app = express(),
   server = require('http').createServer(app),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 5172,
   fileUpload = require('express-fileupload'),
   parser = require('fast-xml-parser'),
   pretty = require('pretty')
