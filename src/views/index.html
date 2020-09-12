@@ -42,7 +42,7 @@
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         document.getElementById('output').innerHTML = xhr.responseText
-                        document.getElementById('output2').innerHTML = xhr.responseText
+                        document.getElementById('output2').value = xhr.responseText
                     }
                 }
                 xhr.send(formData)

@@ -92,4 +92,6 @@ app.post('/run', function (req, res) {
   res.end()
 })
 
-server.listen(port)
+server.listen(port, function () {
+  console.log('Server: http://127.0.0.1:' + port)
+})
